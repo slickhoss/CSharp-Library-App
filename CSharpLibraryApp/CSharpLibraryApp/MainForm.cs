@@ -19,7 +19,7 @@ namespace CSharpLibraryApp
         private bool admin;
         private string userLogin;
         private BookCollection bookCollection;
-        private BookViewModel bookViewModel;
+        //private BookViewModel bookViewModel;
         public MainForm()
         {
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace CSharpLibraryApp
         private void MainForm_Load(object sender, EventArgs e)
         {
            bookCollection = new BookCollection();
-           bookViewModel = new BookViewModel();
+           //bookViewModel = new BookViewModel();
            bookDataGridView.AutoGenerateColumns = false;
             viewButton.Hide();
            loadDataGridView();
@@ -57,8 +57,8 @@ namespace CSharpLibraryApp
             }
             bookCollection = BookRepository.GetBooks();
             bookDataGridView.DataSource = bookCollection;
-            bookViewModel.Books = BookRepository.GetBooks();
-            bookDataGridView.DataSource = bookViewModel.Books;
+            //bookViewModel.Books = BookRepository.GetBooks();
+            //bookDataGridView.DataSource = bookViewModel.Books;
         }
 
         public void setDataGridView ()
@@ -151,7 +151,7 @@ namespace CSharpLibraryApp
                 int index = bookDataGridView.CurrentRow.Index;
                 Book book = bookCollection[index];
                 //Book book1 = bookViewModel.Books[index];
-                EditDialog editDialog = new EditDialog();
+                EditDialog editDialog = new EditDialog() { Admin = true };
                 editDialog.BookId = book.BookId;
                 editDialog.Sku = book.Sku;
                 editDialog.Title = book.Title;
@@ -183,7 +183,7 @@ namespace CSharpLibraryApp
             try
             {
                 //Book book1 = bookViewModel.Books[index];
-                EditDialog editDialog = new EditDialog();
+                EditDialog editDialog = new EditDialog() { Admin = true };
                 editDialog.BookId = null;
                 
                 editDialog.ShowDialog();
@@ -199,6 +199,29 @@ namespace CSharpLibraryApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            int index = bookDataGridView.CurrentRow.Index;
+            Book book = bookCollection[index];
+            EditDialog editDialog = new EditDialog() { Admin = false};
+            editDialog.BookId = book.BookId;
+            editDialog.Sku = book.Sku;
+            editDialog.Title = book.Title;
+            editDialog.Author = book.Author;
+            editDialog.Genre = book.Genre;
+            editDialog.Publisher = book.Publisher;
+            editDialog.PublishedYear = book.PublishedYear.ToString();
+            editDialog.CheckedOut = book.CheckedOut;
+            editDialog.dateCheckedOut = book.dateCheckedOut;
+            editDialog.DueDate = book.DueDate;
+            editDialog.UserLogin = book.CheckedUserOutLogin;
+            editDialog.ShowDialog();
+            if (editDialog.DialogResult == DialogResult.OK)
+            {
+                loadDataGridView();
             }
         }
     }

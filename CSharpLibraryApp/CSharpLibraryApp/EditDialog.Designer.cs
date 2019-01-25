@@ -48,6 +48,10 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.checkedOutDateLabel2 = new System.Windows.Forms.Label();
             this.dueDateLabel2 = new System.Windows.Forms.Label();
+            this.checkOutButton = new System.Windows.Forms.Button();
+            this.returnButton = new System.Windows.Forms.Button();
+            this.checkedOutByLabel = new System.Windows.Forms.Label();
+            this.checkedOutByLabel2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -113,7 +117,7 @@
             // checkedOutDateLabel
             // 
             this.checkedOutDateLabel.AutoSize = true;
-            this.checkedOutDateLabel.Location = new System.Drawing.Point(315, 60);
+            this.checkedOutDateLabel.Location = new System.Drawing.Point(304, 87);
             this.checkedOutDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutDateLabel.Name = "checkedOutDateLabel";
             this.checkedOutDateLabel.Size = new System.Drawing.Size(105, 13);
@@ -123,7 +127,7 @@
             // dueDateLabel
             // 
             this.dueDateLabel.AutoSize = true;
-            this.dueDateLabel.Location = new System.Drawing.Point(357, 80);
+            this.dueDateLabel.Location = new System.Drawing.Point(347, 116);
             this.dueDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dueDateLabel.Name = "dueDateLabel";
             this.dueDateLabel.Size = new System.Drawing.Size(62, 13);
@@ -134,7 +138,7 @@
             // 
             this.checkedOutCheckBox.AutoSize = true;
             this.checkedOutCheckBox.Location = new System.Drawing.Point(329, 205);
-            this.checkedOutCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkedOutCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.checkedOutCheckBox.Name = "checkedOutCheckBox";
             this.checkedOutCheckBox.Size = new System.Drawing.Size(89, 17);
             this.checkedOutCheckBox.TabIndex = 8;
@@ -145,7 +149,7 @@
             // saveButton
             // 
             this.saveButton.Location = new System.Drawing.Point(69, 237);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(80, 29);
             this.saveButton.TabIndex = 9;
@@ -156,7 +160,7 @@
             // cancelButton
             // 
             this.cancelButton.Location = new System.Drawing.Point(329, 237);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(80, 29);
             this.cancelButton.TabIndex = 10;
@@ -167,7 +171,7 @@
             // skuTextBox
             // 
             this.skuTextBox.Location = new System.Drawing.Point(157, 60);
-            this.skuTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.skuTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.skuTextBox.Name = "skuTextBox";
             this.skuTextBox.Size = new System.Drawing.Size(142, 20);
             this.skuTextBox.TabIndex = 12;
@@ -175,7 +179,7 @@
             // titleTextBox
             // 
             this.titleTextBox.Location = new System.Drawing.Point(157, 87);
-            this.titleTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(142, 20);
             this.titleTextBox.TabIndex = 13;
@@ -183,7 +187,7 @@
             // authorTextBox
             // 
             this.authorTextBox.Location = new System.Drawing.Point(157, 116);
-            this.authorTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.authorTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(142, 20);
             this.authorTextBox.TabIndex = 14;
@@ -191,7 +195,7 @@
             // genreTextBox
             // 
             this.genreTextBox.Location = new System.Drawing.Point(157, 146);
-            this.genreTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.genreTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.genreTextBox.Name = "genreTextBox";
             this.genreTextBox.Size = new System.Drawing.Size(142, 20);
             this.genreTextBox.TabIndex = 15;
@@ -199,7 +203,7 @@
             // publisherTextBox
             // 
             this.publisherTextBox.Location = new System.Drawing.Point(157, 174);
-            this.publisherTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.publisherTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.publisherTextBox.Name = "publisherTextBox";
             this.publisherTextBox.Size = new System.Drawing.Size(142, 20);
             this.publisherTextBox.TabIndex = 16;
@@ -207,7 +211,7 @@
             // publishedYearTextBox
             // 
             this.publishedYearTextBox.Location = new System.Drawing.Point(157, 205);
-            this.publishedYearTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.publishedYearTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.publishedYearTextBox.Name = "publishedYearTextBox";
             this.publishedYearTextBox.Size = new System.Drawing.Size(142, 20);
             this.publishedYearTextBox.TabIndex = 17;
@@ -215,7 +219,7 @@
             // deleteButton
             // 
             this.deleteButton.Location = new System.Drawing.Point(200, 237);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(80, 29);
             this.deleteButton.TabIndex = 18;
@@ -226,7 +230,7 @@
             // checkedOutDateLabel2
             // 
             this.checkedOutDateLabel2.AutoSize = true;
-            this.checkedOutDateLabel2.Location = new System.Drawing.Point(417, 60);
+            this.checkedOutDateLabel2.Location = new System.Drawing.Point(415, 87);
             this.checkedOutDateLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutDateLabel2.Name = "checkedOutDateLabel2";
             this.checkedOutDateLabel2.Size = new System.Drawing.Size(15, 13);
@@ -236,18 +240,63 @@
             // dueDateLabel2
             // 
             this.dueDateLabel2.AutoSize = true;
-            this.dueDateLabel2.Location = new System.Drawing.Point(417, 80);
+            this.dueDateLabel2.Location = new System.Drawing.Point(415, 116);
             this.dueDateLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dueDateLabel2.Name = "dueDateLabel2";
             this.dueDateLabel2.Size = new System.Drawing.Size(15, 13);
             this.dueDateLabel2.TabIndex = 20;
             this.dueDateLabel2.Text = "{}";
             // 
+            // checkOutButton
+            // 
+            this.checkOutButton.Location = new System.Drawing.Point(69, 237);
+            this.checkOutButton.Margin = new System.Windows.Forms.Padding(2);
+            this.checkOutButton.Name = "checkOutButton";
+            this.checkOutButton.Size = new System.Drawing.Size(80, 29);
+            this.checkOutButton.TabIndex = 21;
+            this.checkOutButton.Text = "Check Out";
+            this.checkOutButton.UseVisualStyleBackColor = true;
+            this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
+            // 
+            // returnButton
+            // 
+            this.returnButton.Location = new System.Drawing.Point(200, 237);
+            this.returnButton.Margin = new System.Windows.Forms.Padding(2);
+            this.returnButton.Name = "returnButton";
+            this.returnButton.Size = new System.Drawing.Size(80, 29);
+            this.returnButton.TabIndex = 22;
+            this.returnButton.Text = "Return";
+            this.returnButton.UseVisualStyleBackColor = true;
+            // 
+            // checkedOutByLabel
+            // 
+            this.checkedOutByLabel.AutoSize = true;
+            this.checkedOutByLabel.Location = new System.Drawing.Point(315, 60);
+            this.checkedOutByLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkedOutByLabel.Name = "checkedOutByLabel";
+            this.checkedOutByLabel.Size = new System.Drawing.Size(94, 13);
+            this.checkedOutByLabel.TabIndex = 23;
+            this.checkedOutByLabel.Text = "Checked Out By : ";
+            // 
+            // checkedOutByLabel2
+            // 
+            this.checkedOutByLabel2.AutoSize = true;
+            this.checkedOutByLabel2.Location = new System.Drawing.Point(415, 60);
+            this.checkedOutByLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.checkedOutByLabel2.Name = "checkedOutByLabel2";
+            this.checkedOutByLabel2.Size = new System.Drawing.Size(15, 13);
+            this.checkedOutByLabel2.TabIndex = 25;
+            this.checkedOutByLabel2.Text = "{}";
+            // 
             // EditDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.checkedOutByLabel2);
+            this.Controls.Add(this.checkedOutByLabel);
+            this.Controls.Add(this.returnButton);
+            this.Controls.Add(this.checkOutButton);
             this.Controls.Add(this.dueDateLabel2);
             this.Controls.Add(this.checkedOutDateLabel2);
             this.Controls.Add(this.deleteButton);
@@ -268,7 +317,7 @@
             this.Controls.Add(this.authorLabel);
             this.Controls.Add(this.skuLabel);
             this.Controls.Add(this.titleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditDialog";
             this.Text = "EditDialog";
             this.Load += new System.EventHandler(this.EditDialog_Load);
@@ -299,5 +348,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label checkedOutDateLabel2;
         private System.Windows.Forms.Label dueDateLabel2;
+        private System.Windows.Forms.Button checkOutButton;
+        private System.Windows.Forms.Button returnButton;
+        private System.Windows.Forms.Label checkedOutByLabel;
+        private System.Windows.Forms.Label checkedOutByLabel2;
     }
 }

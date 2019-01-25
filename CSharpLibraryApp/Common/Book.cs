@@ -22,6 +22,7 @@ namespace Common
         public DateTime dateCheckedOut;
         public DateTime dueDate;
         public string dueDateString;
+        public string checkedOutUserLogin;
 
         public string BookId
         {
@@ -107,6 +108,10 @@ namespace Common
             }
         }
 
-
+        public string CheckedUserOutLogin
+        {
+            get { return checkedOutUserLogin; }
+            set { checkedOutUserLogin = value; }
+        }
     }
 }

@@ -18,7 +18,9 @@ namespace CSharpLibraryApp
         {
             InitializeComponent();
         }
-        
+
+        public bool admin;
+        public string userLogin;
         public string bookId;
         public string sku;
         public string title;
@@ -29,6 +31,18 @@ namespace CSharpLibraryApp
         public bool checkedOut;
         public DateTime dateCheckedOut;
         public DateTime dueDate;
+
+        public bool Admin
+        {
+            get { return admin; }
+            set { admin = value; }
+        }
+
+        public string UserLogin
+        {
+            get { return userLogin; }
+            set { userLogin = value; }
+        }
 
         public string BookId
         {
@@ -92,6 +106,8 @@ namespace CSharpLibraryApp
 
         private void EditDialog_Load(object sender, EventArgs e)
         {
+            checkOutButton.Hide();
+            returnButton.Hide();
             skuTextBox.Text = this.Sku;
             titleTextBox.Text = this.Title;
             authorTextBox.Text = this.Author;
@@ -101,11 +117,14 @@ namespace CSharpLibraryApp
             checkedOutCheckBox.Checked = this.CheckedOut;
             if (this.CheckedOut == true)
             {
+                checkedOutByLabel2.Text = this.UserLogin;
                 checkedOutDateLabel2.Text = this.DateCheckedOut.ToString("MM/dd/yyyy");
                 dueDateLabel2.Text = this.DueDate.ToString("MM/dd/yyyy");
             }
             else
             {
+                checkedOutByLabel.Text = "";
+                checkedOutByLabel2.Text = "";
                 checkedOutDateLabel.Text = "";
                 checkedOutDateLabel2.Text = "";
                 dueDateLabel.Text = "";
@@ -113,6 +132,20 @@ namespace CSharpLibraryApp
             }
             if (this.BookId == null)
             {
+                checkedOutCheckBox.Enabled = false;
+            }
+            if (this.Admin != true)
+            {
+                saveButton.Hide();
+                deleteButton.Hide();
+                checkOutButton.Show();
+                returnButton.Show();
+                skuTextBox.Enabled = false;
+                titleTextBox.Enabled = false;
+                authorTextBox.Enabled = false;
+                genreTextBox.Enabled = false;
+                publisherTextBox.Enabled = false;
+                publishedYearTextBox.Enabled = false;
                 checkedOutCheckBox.Enabled = false;
             }
         }
@@ -156,6 +189,24 @@ namespace CSharpLibraryApp
             Book book = new Book();
             book.BookId = this.bookId;
             BookRepository.DeleteBook(book);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void checkOutButton_Click(object sender, EventArgs e)
+        {
+            Book book = new Book();
+            book.BookId = this.BookId;
+            book.Sku = this.Sku;
+            book.Title = this.Title;
+            book.Author = this.Author;
+            book.Genre = this.Genre;
+            book.Publisher = this.Publisher;
+            book.PublishedYear = Int16.Parse(this.PublishedYear);
+            book.DateCheckedOut = DateTime.Now;
+            book.DueDate = book.DateCheckedOut.AddDays(14);
+            book.CheckedUserOutLogin = this.UserLogin.ToLower();
+            book.CheckedOut = true;
+            BookRepository.UpdateBook(book);
             this.DialogResult = DialogResult.OK;
         }
     }

@@ -36,7 +36,7 @@ namespace CSharpLibraryApp
                 {
                     mainForm = new MainForm() { UserLogin = userLogInTextBox.Text, Admin = true};
                 }
-                mainForm.Show();
+                mainForm.ShowDialog();
                 if (mainForm.DialogResult == DialogResult.Cancel)
                 {
                     this.Close();
@@ -53,7 +53,7 @@ namespace CSharpLibraryApp
         private void signUpButton_Click(object sender, EventArgs e)
         {
             SignUpForm signUpForm = new SignUpForm();
-            signUpForm.Show();
+            signUpForm.ShowDialog();
             this.Hide();
         }
     }

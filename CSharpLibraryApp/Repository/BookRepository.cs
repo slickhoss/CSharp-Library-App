@@ -74,7 +74,7 @@ namespace Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 BookCollection bookCollection = new BookCollection();
-                string query = @"SELECT bookId, sku, title, author, genre, publisher, publishedYear, checkedOut,dateCheckedOut, dueDate FROM Books";
+                string query = @"SELECT bookId, sku, title, author, genre, publisher, publishedYear, checkedOut,dateCheckedOut, dueDate, checkedOutUserLogin FROM Books";
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.CommandType = CommandType.Text;
@@ -94,6 +94,7 @@ namespace Repository
                         bool checkedOut;
                         DateTime dateCheckedOut = DateTime.MinValue;
                         DateTime dueDate = DateTime.MinValue;
+                        string checkedOutUserLogin = null;
                         while (reader.Read())
                         {
                             id = (int)reader["bookId"];
@@ -119,11 +120,16 @@ namespace Repository
                             {
                                 dueDate = (DateTime)reader["dueDate"];
                             }
-                            bookCollection.Add(new Book { BookId = bookId, Sku = sku, Title = title, Author = author, Genre = genre, Publisher = publisher, PublishedYear = publishedYear, CheckedOut = checkedOut, DateCheckedOut = dateCheckedOut, DueDate = dueDate });
+                            if(!reader.IsDBNull(10))
+                            {
+                                checkedOutUserLogin = reader["checkedOutUserLogin"] as string;   
+                            }
+                            bookCollection.Add(new Book { BookId = bookId, Sku = sku, Title = title, Author = author, Genre = genre, Publisher = publisher, PublishedYear = publishedYear, CheckedOut = checkedOut, DateCheckedOut = dateCheckedOut, DueDate = dueDate, CheckedUserOutLogin = checkedOutUserLogin });
                             publisher = null;
                             publishedYear = 0;
                             dueDate = DateTime.MinValue;
                             dateCheckedOut = DateTime.MinValue;
+                            checkedOutUserLogin = null;
                         }
                     }
                     return bookCollection;
@@ -138,7 +144,7 @@ namespace Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"UPDATE Books SET sku = @sku, title = @title, author = @author, genre = @genre, publisher = @publisher, publishedYear = @publishedYear, checkedOut = @checkedOut, dateCheckedOut = @dateCheckedOut, dueDate = @dueDate WHERE bookId = @bookId";
+                string query = @"UPDATE Books SET sku = @sku, title = @title, author = @author, genre = @genre, publisher = @publisher, publishedYear = @publishedYear, checkedOut = @checkedOut, dateCheckedOut = @dateCheckedOut, dueDate = @dueDate, checkedOutUserLogin = @checkedOutUserLogin WHERE bookId = @bookId";
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.CommandType = CommandType.Text;
@@ -179,6 +185,14 @@ namespace Repository
                     else
                     {
                         command.Parameters.AddWithValue("@dueDate", DBNull.Value);
+                    }
+                    if (book.CheckedUserOutLogin != null)
+                    {
+                        command.Parameters.AddWithValue("@checkedOutUserLogin", book.CheckedUserOutLogin);
+                    }
+                    else
+                    {
+                        command.Parameters.AddWithValue("@checkedOutUserLogin", DBNull.Value);
                     }
                     command.Parameters.AddWithValue("@bookId", Int16.Parse(book.BookId));
                     command.Connection = connection;
