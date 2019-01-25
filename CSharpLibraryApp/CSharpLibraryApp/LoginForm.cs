@@ -22,12 +22,20 @@ namespace CSharpLibraryApp
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            MainForm mainForm;
             Account account = new Account { UserLogin = userLogInTextBox.Text, Password = passwordTextBox.Text };
             if (BookRepository.LogIn(account) == 1)
             {
                 this.DialogResult = DialogResult.OK;
                 this.Hide();
-                MainForm mainForm = new MainForm() { UserLogin = userLogInTextBox.Text };
+                if (account.UserLogin != "admin")
+                {
+                    mainForm = new MainForm() { UserLogin = userLogInTextBox.Text };
+                }
+                else
+                {
+                    mainForm = new MainForm() { UserLogin = userLogInTextBox.Text, Admin = true};
+                }
                 mainForm.Show();
                 if (mainForm.DialogResult == DialogResult.Cancel)
                 {

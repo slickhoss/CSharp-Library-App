@@ -25,6 +25,12 @@ namespace CSharpLibraryApp
             InitializeComponent();
         }
 
+        public bool Admin
+        {
+            get { return admin; }
+            set { admin = value; }
+        }
+
         public string UserLogin
         {
             get { return userLogin; }
@@ -36,6 +42,7 @@ namespace CSharpLibraryApp
            bookCollection = new BookCollection();
            bookViewModel = new BookViewModel();
            bookDataGridView.AutoGenerateColumns = false;
+            viewButton.Hide();
            loadDataGridView();
            setDataGridView();
         }
@@ -44,6 +51,7 @@ namespace CSharpLibraryApp
         {
             if (admin == false)
             {
+                viewButton.Show();
                 newButton.Hide();
                 editButton.Hide();
             }
