@@ -19,6 +19,7 @@ namespace CSharpLibraryApp
             InitializeComponent();
         }
 
+        //dialog fields
         public bool admin;
         public string userLogin;
         public string bookId;
@@ -134,6 +135,7 @@ namespace CSharpLibraryApp
             {
                 checkedOutCheckBox.Enabled = false;
             }
+            //end user configuration
             if (this.Admin != true)
             {
                 saveButton.Hide();
@@ -204,7 +206,7 @@ namespace CSharpLibraryApp
             book.PublishedYear = Int16.Parse(this.PublishedYear);
             book.DateCheckedOut = DateTime.Now;
             book.DueDate = book.DateCheckedOut.AddDays(14);
-            book.CheckedUserOutLogin = this.UserLogin.ToLower();
+            book.CheckedUserOutLogin = this.UserLogin;
             book.CheckedOut = true;
             BookRepository.UpdateBook(book);
             this.DialogResult = DialogResult.OK;

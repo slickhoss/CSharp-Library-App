@@ -74,7 +74,7 @@ namespace Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 BookCollection bookCollection = new BookCollection();
-                string query = @"SELECT bookId, sku, title, author, genre, publisher, publishedYear, checkedOut,dateCheckedOut, dueDate, checkedOutUserLogin FROM Books";
+                string query = @"SELECT bookId, sku, title, author, genre, publisher, publishedYear, checkedOut,dateCheckedOut, dueDate, checkedOutUserLogin FROM Books ORDER BY sku ASC";
                 using (SqlCommand command = new SqlCommand())
                 {
                     command.CommandType = CommandType.Text;
@@ -222,6 +222,9 @@ namespace Repository
             }
         }
 
+        /// <summary>
+        ///Login function - verifies an account with a matching login/password pair exist in the table 
+        /// </summary>
         public static int LogIn(Account account)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -247,6 +250,9 @@ namespace Repository
             }
         }
 
+        /// <summary>
+        /// Creates function for table Account
+        /// </summary>
         public static int CreateAccount(Account account)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

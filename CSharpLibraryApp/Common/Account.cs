@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Common
 {
+    /// <summary>
+    /// Data class for object Account
+    /// </summary>
     public class Account
     {
         public int accountId;

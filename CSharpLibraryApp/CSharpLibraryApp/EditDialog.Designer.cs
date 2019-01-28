@@ -61,7 +61,7 @@
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(36, 13);
-            this.titleLabel.TabIndex = 0;
+            this.titleLabel.TabIndex = 2;
             this.titleLabel.Text = "Title : ";
             // 
             // skuLabel
@@ -71,7 +71,7 @@
             this.skuLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.skuLabel.Name = "skuLabel";
             this.skuLabel.Size = new System.Drawing.Size(32, 13);
-            this.skuLabel.TabIndex = 1;
+            this.skuLabel.TabIndex = 0;
             this.skuLabel.Text = "Sku :";
             // 
             // authorLabel
@@ -81,7 +81,7 @@
             this.authorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.authorLabel.Name = "authorLabel";
             this.authorLabel.Size = new System.Drawing.Size(47, 13);
-            this.authorLabel.TabIndex = 2;
+            this.authorLabel.TabIndex = 4;
             this.authorLabel.Text = "Author : ";
             // 
             // GenreLabel
@@ -91,7 +91,7 @@
             this.GenreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GenreLabel.Name = "GenreLabel";
             this.GenreLabel.Size = new System.Drawing.Size(45, 13);
-            this.GenreLabel.TabIndex = 3;
+            this.GenreLabel.TabIndex = 6;
             this.GenreLabel.Text = "Genre : ";
             // 
             // publisherLabel
@@ -101,7 +101,7 @@
             this.publisherLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.publisherLabel.Name = "publisherLabel";
             this.publisherLabel.Size = new System.Drawing.Size(59, 13);
-            this.publisherLabel.TabIndex = 4;
+            this.publisherLabel.TabIndex = 8;
             this.publisherLabel.Text = "Publisher : ";
             // 
             // publishedYearLabel
@@ -111,7 +111,7 @@
             this.publishedYearLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.publishedYearLabel.Name = "publishedYearLabel";
             this.publishedYearLabel.Size = new System.Drawing.Size(87, 13);
-            this.publishedYearLabel.TabIndex = 5;
+            this.publishedYearLabel.TabIndex = 10;
             this.publishedYearLabel.Text = "Published Year : ";
             // 
             // checkedOutDateLabel
@@ -121,7 +121,7 @@
             this.checkedOutDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutDateLabel.Name = "checkedOutDateLabel";
             this.checkedOutDateLabel.Size = new System.Drawing.Size(105, 13);
-            this.checkedOutDateLabel.TabIndex = 6;
+            this.checkedOutDateLabel.TabIndex = 20;
             this.checkedOutDateLabel.Text = "Checked Out Date : ";
             // 
             // dueDateLabel
@@ -131,7 +131,7 @@
             this.dueDateLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dueDateLabel.Name = "dueDateLabel";
             this.dueDateLabel.Size = new System.Drawing.Size(62, 13);
-            this.dueDateLabel.TabIndex = 7;
+            this.dueDateLabel.TabIndex = 22;
             this.dueDateLabel.Text = "Due Date : ";
             // 
             // checkedOutCheckBox
@@ -141,7 +141,7 @@
             this.checkedOutCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.checkedOutCheckBox.Name = "checkedOutCheckBox";
             this.checkedOutCheckBox.Size = new System.Drawing.Size(89, 17);
-            this.checkedOutCheckBox.TabIndex = 8;
+            this.checkedOutCheckBox.TabIndex = 12;
             this.checkedOutCheckBox.Text = "Checked Out";
             this.checkedOutCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkedOutCheckBox.UseVisualStyleBackColor = true;
@@ -152,8 +152,8 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(80, 29);
-            this.saveButton.TabIndex = 9;
-            this.saveButton.Text = "Save";
+            this.saveButton.TabIndex = 15;
+            this.saveButton.Text = "&Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -163,8 +163,8 @@
             this.cancelButton.Margin = new System.Windows.Forms.Padding(2);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(80, 29);
-            this.cancelButton.TabIndex = 10;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.TabIndex = 17;
+            this.cancelButton.Text = "&Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -174,7 +174,7 @@
             this.skuTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.skuTextBox.Name = "skuTextBox";
             this.skuTextBox.Size = new System.Drawing.Size(142, 20);
-            this.skuTextBox.TabIndex = 12;
+            this.skuTextBox.TabIndex = 1;
             // 
             // titleTextBox
             // 
@@ -182,7 +182,7 @@
             this.titleTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(142, 20);
-            this.titleTextBox.TabIndex = 13;
+            this.titleTextBox.TabIndex = 3;
             // 
             // authorTextBox
             // 
@@ -190,7 +190,7 @@
             this.authorTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(142, 20);
-            this.authorTextBox.TabIndex = 14;
+            this.authorTextBox.TabIndex = 5;
             // 
             // genreTextBox
             // 
@@ -198,7 +198,7 @@
             this.genreTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.genreTextBox.Name = "genreTextBox";
             this.genreTextBox.Size = new System.Drawing.Size(142, 20);
-            this.genreTextBox.TabIndex = 15;
+            this.genreTextBox.TabIndex = 7;
             // 
             // publisherTextBox
             // 
@@ -206,7 +206,7 @@
             this.publisherTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.publisherTextBox.Name = "publisherTextBox";
             this.publisherTextBox.Size = new System.Drawing.Size(142, 20);
-            this.publisherTextBox.TabIndex = 16;
+            this.publisherTextBox.TabIndex = 9;
             // 
             // publishedYearTextBox
             // 
@@ -214,7 +214,7 @@
             this.publishedYearTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.publishedYearTextBox.Name = "publishedYearTextBox";
             this.publishedYearTextBox.Size = new System.Drawing.Size(142, 20);
-            this.publishedYearTextBox.TabIndex = 17;
+            this.publishedYearTextBox.TabIndex = 11;
             // 
             // deleteButton
             // 
@@ -222,8 +222,8 @@
             this.deleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(80, 29);
-            this.deleteButton.TabIndex = 18;
-            this.deleteButton.Text = "Delete";
+            this.deleteButton.TabIndex = 16;
+            this.deleteButton.Text = "&Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -234,7 +234,7 @@
             this.checkedOutDateLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutDateLabel2.Name = "checkedOutDateLabel2";
             this.checkedOutDateLabel2.Size = new System.Drawing.Size(15, 13);
-            this.checkedOutDateLabel2.TabIndex = 19;
+            this.checkedOutDateLabel2.TabIndex = 21;
             this.checkedOutDateLabel2.Text = "{}";
             // 
             // dueDateLabel2
@@ -244,7 +244,7 @@
             this.dueDateLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dueDateLabel2.Name = "dueDateLabel2";
             this.dueDateLabel2.Size = new System.Drawing.Size(15, 13);
-            this.dueDateLabel2.TabIndex = 20;
+            this.dueDateLabel2.TabIndex = 23;
             this.dueDateLabel2.Text = "{}";
             // 
             // checkOutButton
@@ -253,8 +253,8 @@
             this.checkOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(80, 29);
-            this.checkOutButton.TabIndex = 21;
-            this.checkOutButton.Text = "Check Out";
+            this.checkOutButton.TabIndex = 13;
+            this.checkOutButton.Text = "&Check Out";
             this.checkOutButton.UseVisualStyleBackColor = true;
             this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
             // 
@@ -264,8 +264,8 @@
             this.returnButton.Margin = new System.Windows.Forms.Padding(2);
             this.returnButton.Name = "returnButton";
             this.returnButton.Size = new System.Drawing.Size(80, 29);
-            this.returnButton.TabIndex = 22;
-            this.returnButton.Text = "Return";
+            this.returnButton.TabIndex = 14;
+            this.returnButton.Text = "&Return";
             this.returnButton.UseVisualStyleBackColor = true;
             // 
             // checkedOutByLabel
@@ -275,7 +275,7 @@
             this.checkedOutByLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutByLabel.Name = "checkedOutByLabel";
             this.checkedOutByLabel.Size = new System.Drawing.Size(94, 13);
-            this.checkedOutByLabel.TabIndex = 23;
+            this.checkedOutByLabel.TabIndex = 18;
             this.checkedOutByLabel.Text = "Checked Out By : ";
             // 
             // checkedOutByLabel2
@@ -285,7 +285,7 @@
             this.checkedOutByLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.checkedOutByLabel2.Name = "checkedOutByLabel2";
             this.checkedOutByLabel2.Size = new System.Drawing.Size(15, 13);
-            this.checkedOutByLabel2.TabIndex = 25;
+            this.checkedOutByLabel2.TabIndex = 19;
             this.checkedOutByLabel2.Text = "{}";
             // 
             // EditDialog

@@ -49,6 +49,7 @@ namespace CSharpLibraryApp
 
         public void loadDataGridView()
         {
+            // end user configuration
             if (admin == false)
             {
                 viewButton.Show();
@@ -61,6 +62,7 @@ namespace CSharpLibraryApp
             //bookDataGridView.DataSource = bookViewModel.Books;
         }
 
+        //data grid view configuration
         public void setDataGridView ()
         {
             bookDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -77,7 +79,7 @@ namespace CSharpLibraryApp
             sku.DataPropertyName = "Sku";
             sku.HeaderText = "Sku";
             sku.Width = 60;
-            sku.SortMode = DataGridViewColumnSortMode.NotSortable;
+            sku.SortMode = DataGridViewColumnSortMode.Programmatic;
             bookDataGridView.Columns.Add(sku);
 
             DataGridViewTextBoxColumn title = new DataGridViewTextBoxColumn();
@@ -85,7 +87,7 @@ namespace CSharpLibraryApp
             title.DataPropertyName = "Title";
             title.HeaderText = "Title";
             title.Width = 160;
-            title.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //title.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(title);
 
             DataGridViewTextBoxColumn author = new DataGridViewTextBoxColumn();
@@ -93,7 +95,7 @@ namespace CSharpLibraryApp
             author.DataPropertyName = "Author";
             author.HeaderText = "Author";
             author.Width = 121;
-            author.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //author.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(author);
 
             DataGridViewTextBoxColumn genre = new DataGridViewTextBoxColumn();
@@ -101,7 +103,7 @@ namespace CSharpLibraryApp
             genre.DataPropertyName = "Genre";
             genre.HeaderText = "Genre";
             genre.Width = 80;
-            genre.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //genre.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(genre);
 
             DataGridViewTextBoxColumn publisher = new DataGridViewTextBoxColumn();
@@ -109,7 +111,7 @@ namespace CSharpLibraryApp
             publisher.DataPropertyName = "Publisher";
             publisher.HeaderText = "Publisher";
             publisher.Width = 120;
-            publisher.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //publisher.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(publisher);
 
             DataGridViewTextBoxColumn publishedYear = new DataGridViewTextBoxColumn();
@@ -117,14 +119,14 @@ namespace CSharpLibraryApp
             publishedYear.DataPropertyName = "PublishedYear";
             publishedYear.HeaderText = "Published Year";
             publishedYear.Width = 80;
-            publishedYear.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //publishedYear.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(publishedYear);
 
             DataGridViewCheckBoxColumn checkedOut = new DataGridViewCheckBoxColumn();
             checkedOut.Name = "Checked Out";
             checkedOut.DataPropertyName = "CheckedOut";
             checkedOut.HeaderText = "Checked Out";
-            checkedOut.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //checkedOut.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(checkedOut);
 
             DataGridViewTextBoxColumn dateCheckedOut = new DataGridViewTextBoxColumn();
@@ -132,7 +134,7 @@ namespace CSharpLibraryApp
             dateCheckedOut.DataPropertyName = "DateCheckedOutString";
             dateCheckedOut.HeaderText = "Date Checked Out";
             dateCheckedOut.Width = 67;
-            dateCheckedOut.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //dateCheckedOut.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(dateCheckedOut);
 
             DataGridViewTextBoxColumn dueDate = new DataGridViewTextBoxColumn();
@@ -140,7 +142,7 @@ namespace CSharpLibraryApp
             dueDate.DataPropertyName = "DueDateString";
             dueDate.HeaderText = "Due Date";
             dueDate.Width = 67;
-            dueDate.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //dueDate.SortMode = DataGridViewColumnSortMode.NotSortable;
             bookDataGridView.Columns.Add(dueDate);
         }
 
@@ -217,7 +219,10 @@ namespace CSharpLibraryApp
             editDialog.CheckedOut = book.CheckedOut;
             editDialog.dateCheckedOut = book.dateCheckedOut;
             editDialog.DueDate = book.DueDate;
-            editDialog.UserLogin = book.CheckedUserOutLogin;
+            if (!String.IsNullOrWhiteSpace(book.CheckedUserOutLogin))
+            {
+                editDialog.UserLogin = book.CheckedUserOutLogin;
+            }
             editDialog.ShowDialog();
             if (editDialog.DialogResult == DialogResult.OK)
             {

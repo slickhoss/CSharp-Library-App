@@ -53,7 +53,7 @@
             this.newButton.Name = "newButton";
             this.newButton.Size = new System.Drawing.Size(73, 28);
             this.newButton.TabIndex = 1;
-            this.newButton.Text = "New";
+            this.newButton.Text = "&New";
             this.newButton.UseVisualStyleBackColor = true;
             this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
@@ -63,8 +63,8 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(2);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(73, 28);
-            this.editButton.TabIndex = 3;
-            this.editButton.Text = "Edit";
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "&Edit";
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -74,8 +74,8 @@
             this.viewButton.Margin = new System.Windows.Forms.Padding(2);
             this.viewButton.Name = "viewButton";
             this.viewButton.Size = new System.Drawing.Size(73, 28);
-            this.viewButton.TabIndex = 4;
-            this.viewButton.Text = "View";
+            this.viewButton.TabIndex = 3;
+            this.viewButton.Text = "&View";
             this.viewButton.UseVisualStyleBackColor = true;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
