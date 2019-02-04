@@ -114,8 +114,20 @@ namespace Valdiation
         {
             if (isValidBook(book))
             {
-                BookRepository.UpdateBook(book);
-                return 1;
+
+                try
+                {
+                    BookRepository.UpdateBook(book);
+                    return 1;
+                }
+                catch (SqlException ex)
+                {
+                    if (ex.Number == 2627)
+                    {
+                        errorMessages.Add("A book with this sku already exist");
+                        return 0;
+                    }
+                }
             }
             return 0;
         }

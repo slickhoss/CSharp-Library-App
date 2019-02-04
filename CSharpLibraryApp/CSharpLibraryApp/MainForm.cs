@@ -219,9 +219,9 @@ namespace CSharpLibraryApp
             editDialog.CheckedOut = book.CheckedOut;
             editDialog.dateCheckedOut = book.dateCheckedOut;
             editDialog.DueDate = book.DueDate;
-            if (!String.IsNullOrWhiteSpace(book.CheckedUserOutLogin))
+            if (!String.IsNullOrWhiteSpace(book.CheckedOutUserLogin))
             {
-                editDialog.UserLogin = book.CheckedUserOutLogin;
+                editDialog.UserLogin = book.CheckedOutUserLogin;
             }
             editDialog.ShowDialog();
             if (editDialog.DialogResult == DialogResult.OK)

@@ -124,7 +124,7 @@ namespace Repository
                             {
                                 checkedOutUserLogin = reader["checkedOutUserLogin"] as string;   
                             }
-                            bookCollection.Add(new Book { BookId = bookId, Sku = sku, Title = title, Author = author, Genre = genre, Publisher = publisher, PublishedYear = publishedYear, CheckedOut = checkedOut, DateCheckedOut = dateCheckedOut, DueDate = dueDate, CheckedUserOutLogin = checkedOutUserLogin });
+                            bookCollection.Add(new Book { BookId = bookId, Sku = sku, Title = title, Author = author, Genre = genre, Publisher = publisher, PublishedYear = publishedYear, CheckedOut = checkedOut, DateCheckedOut = dateCheckedOut, DueDate = dueDate, CheckedOutUserLogin = checkedOutUserLogin });
                             publisher = null;
                             publishedYear = 0;
                             dueDate = DateTime.MinValue;
@@ -186,9 +186,9 @@ namespace Repository
                     {
                         command.Parameters.AddWithValue("@dueDate", DBNull.Value);
                     }
-                    if (book.CheckedUserOutLogin != null)
+                    if (book.CheckedOutUserLogin != null)
                     {
-                        command.Parameters.AddWithValue("@checkedOutUserLogin", book.CheckedUserOutLogin);
+                        command.Parameters.AddWithValue("@checkedOutUserLogin", book.CheckedOutUserLogin);
                     }
                     else
                     {

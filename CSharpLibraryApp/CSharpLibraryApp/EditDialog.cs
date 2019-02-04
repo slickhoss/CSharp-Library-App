@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Common;
+using Valdiation;
 using Repository;
 
 namespace CSharpLibraryApp
@@ -18,6 +19,8 @@ namespace CSharpLibraryApp
         {
             InitializeComponent();
         }
+
+        ErrorProvider errorProvider;
 
         //dialog fields
         public bool admin;
@@ -107,6 +110,7 @@ namespace CSharpLibraryApp
 
         private void EditDialog_Load(object sender, EventArgs e)
         {
+            errorProvider = new ErrorProvider();
             checkOutButton.Hide();
             returnButton.Hide();
             skuTextBox.Text = this.Sku;
@@ -160,6 +164,7 @@ namespace CSharpLibraryApp
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            int result;
             Book book = new Book();
             book.BookId = this.BookId;
             book.Sku = skuTextBox.Text;
@@ -176,8 +181,18 @@ namespace CSharpLibraryApp
                     book.DateCheckedOut = DateTime.Now;
                     book.DueDate = book.DateCheckedOut.AddDays(14);
                 }
-                BookRepository.UpdateBook(book);
-                this.DialogResult = DialogResult.OK;
+                result = Validator.UpdateBook(book);
+                if (result == 1)
+                {
+                    BookRepository.UpdateBook(book);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    errorProvider.SetIconAlignment(saveButton, ErrorIconAlignment.MiddleRight);
+                    errorProvider.SetError(saveButton, Validator.GetMessage);
+                    errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+                }
             }
             if (book.BookId == null)
             {
@@ -206,9 +221,27 @@ namespace CSharpLibraryApp
             book.PublishedYear = Int16.Parse(this.PublishedYear);
             book.DateCheckedOut = DateTime.Now;
             book.DueDate = book.DateCheckedOut.AddDays(14);
-            book.CheckedUserOutLogin = this.UserLogin;
+            book.CheckedOutUserLogin = this.UserLogin;
             book.CheckedOut = true;
-            BookRepository.UpdateBook(book);
+            Validator.UpdateBook(book);
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void returnButton_Click(object sender, EventArgs e)
+        {
+            Book book = new Book();
+            book.BookId = this.BookId;
+            book.Sku = this.Sku;
+            book.Title = this.Title;
+            book.Author = this.Author;
+            book.Genre = this.Genre;
+            book.Publisher = this.Publisher;
+            book.PublishedYear = Int16.Parse(this.PublishedYear);
+            book.DateCheckedOut = DateTime.MinValue;
+            book.DueDate = DateTime.MinValue;
+            book.CheckedOutUserLogin = null;
+            book.CheckedOut = false;
+            Validator.UpdateBook(book);
             this.DialogResult = DialogResult.OK;
         }
     }

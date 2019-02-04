@@ -254,7 +254,7 @@
             this.checkOutButton.Name = "checkOutButton";
             this.checkOutButton.Size = new System.Drawing.Size(80, 29);
             this.checkOutButton.TabIndex = 13;
-            this.checkOutButton.Text = "&Check Out";
+            this.checkOutButton.Text = "Check &Out";
             this.checkOutButton.UseVisualStyleBackColor = true;
             this.checkOutButton.Click += new System.EventHandler(this.checkOutButton_Click);
             // 
@@ -267,6 +267,7 @@
             this.returnButton.TabIndex = 14;
             this.returnButton.Text = "&Return";
             this.returnButton.UseVisualStyleBackColor = true;
+            this.returnButton.Click += new System.EventHandler(this.returnButton_Click);
             // 
             // checkedOutByLabel
             // 

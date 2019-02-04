@@ -108,7 +108,7 @@ namespace Common
             }
         }
 
-        public string CheckedUserOutLogin
+        public string CheckedOutUserLogin
         {
             get { return checkedOutUserLogin; }
             set { checkedOutUserLogin = value; }
